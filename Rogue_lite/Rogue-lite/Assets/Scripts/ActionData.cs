@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [CreateAssetMenu(menuName = "ActionSystem/NewAction")]      //ActionSystem/NewAction 메뉴에서 스크립터블 오브젝트를 사용할 수 있게 함
 public class ActionData : ScriptableObject
 {
@@ -31,10 +32,10 @@ public class ActionData : ScriptableObject
             }
         }
     }
-
     //mecanimName를 외부에서 접근할 수 있게 추가
     public string MecanimName
     {
         get { return mecanimName; }
     }
+
 }
