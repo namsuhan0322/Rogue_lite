@@ -2,23 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[CreateAssetMenu(menuName = "ActionSystem/NewAction")]      //ActionSystem/NewAction ¸Þ´º¿¡¼­ ½ºÅ©¸³ÅÍºí ¿ÀºêÁ§Æ®¸¦ »ç¿ëÇÒ ¼ö ÀÖ°Ô ÇÔ
+[CreateAssetMenu(menuName = "ActionSystem/NewAction")]      //ActionSystem/NewAction ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½Íºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½
 public class ActionData : ScriptableObject
 {
     [SerializeField] public string animName;
     [SerializeField] private string mecanimName;
     [SerializeField] private string nextMecanimName;
 
-    [SerializeField] public float fxTime;                   //ÀÌÆåÆ®°¡ ³ªÅ¸³ª´Â ½Ã°£ 
-    [SerializeField] public string layerName;               //¸ÞÄ«´Ô ·¹ÀÌ¾î ¼³Á¤
-    [SerializeField] public float waitTime;                 //±â´Ù¸®´Â ½Ã°£ 
+    [SerializeField] public float fxTime;                   //ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ 
+    [SerializeField] public string layerName;               //ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½
+    [SerializeField] public float waitTime;                 //ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ 
     [SerializeField] public float nextWaitTime;
     [SerializeField] public GameObject fxObject;
 
     private AnimationClip eventClip;
 
-    //¾Ö´Ï¸ÞÀÌ¼Ç Å¬¸³ÀÇ °ÔÅÍ¿Í ¼¼ÅÍ 
+    //ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½ï¿½ï¿½ 
     public AnimationClip EventClip
     {
         get { return this.eventClip; }
@@ -27,15 +26,14 @@ public class ActionData : ScriptableObject
             this.eventClip = value;
             if(eventClip != null)
             {
-                waitTime = eventClip.length;        //Å¬¸³ÀÇ ±æÀÌ¸¦ waitTime¿¡ ¼³Á¤
-                mecanimName = eventClip.name;       //Å¬¸³ÀÇ ÀÌ¸§À» mecanimName¿¡ ¼³Á¤
+                waitTime = eventClip.length;        //Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ waitTimeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+                mecanimName = eventClip.name;       //Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ mecanimNameï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             }
         }
     }
-    //mecanimName¸¦ ¿ÜºÎ¿¡¼­ Á¢±ÙÇÒ ¼ö ÀÖ°Ô Ãß°¡
+    //mecanimNameï¿½ï¿½ ï¿½ÜºÎ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ß°ï¿½
     public string MecanimName
     {
         get { return mecanimName; }
     }
-
 }

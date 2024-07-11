@@ -6,16 +6,18 @@ public class PlayerController : MonoBehaviour
 {
     public CharacterController controller;              //RIgidbody 를 사용하지 않는 충돌체 캐릭터 컨트롤 용
     public Animator animator;
-
-    //기본 스텟 선언
+    
+    [Header("기본 스텟")]
     public float speed = 5.0f;
     public float runSpeed = 10.0f;
     public float acceleration = 10.0f;
     public float currentSpeed = 0.0f;
-    //점프와 물리
+
+    [Header("점프와 물리")]
     public float jumpHeight = 2.0f;
     public float gravity = -9.81f;
-    //대시 관련 설정
+
+    [Header("대시 관련 설정")]
     public float dashSpeed = 20.0f;
     public float dashTime = 2.0f;
     public float dashCooldown = 5.0f;
@@ -23,9 +25,11 @@ public class PlayerController : MonoBehaviour
     private float dashCounter;
     private float dashTimer;
     private bool isDashing = false;
-    //액션 상태 
+
+    [Header("액션 상태")]
     public bool isAction = false;
-    //속도 및 방향 값 
+
+    [Header("속도 및 방향 값")]
     private Vector3 velocity;
     private bool canJumpAgain = true;
     public Transform cam;
@@ -35,7 +39,7 @@ public class PlayerController : MonoBehaviour
     public ComboSystem comboSystem;
     public Transform fxTransform;
 
-    //액션 관련 변수
+    [Header("액션 관련 변수")]
     private float actionTimer = 0f;
     private ActionData currentAction = null;
     private GameObject currentFx = null;
@@ -113,13 +117,13 @@ public class PlayerController : MonoBehaviour
             {
                 animator.SetBool("IsJumping", true);
                 animator.SetBool("IsFalling", false);
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);            //점프 최대 높이 
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);           //점프 최대 높이 
             }
             else if(canJumpAgain)                                               //2단 점프 기능이 있을 경우 
             {
                 animator.SetBool("IsJumping", true);
                 animator.SetBool("IsFalling", false);
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);            //점프 최대 높이 
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);           //점프 최대 높이 
                 canJumpAgain = false;
             }
         }
@@ -131,7 +135,7 @@ public class PlayerController : MonoBehaviour
 
     void UpdateAction()         
     {
-        if (currentAction == null) return;                  //액션이 없다면 리턴 
+        if (currentAction == null) return;                              //액션이 없다면 리턴 
         actionTimer += Time.deltaTime;
 
         if(actionTimer >= currentAction.fxTime && currentFx == null)        //VFX 생성 시간이 되면 
